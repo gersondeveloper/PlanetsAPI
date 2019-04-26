@@ -1,10 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using StartWarsAPI.Infra.Interfaces;
 using StarWarsAPI.Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StartWarsAPI.Infra.Context
 {
@@ -14,9 +12,10 @@ namespace StartWarsAPI.Infra.Context
 
         public PlanetContext(IConfiguration config)
         {
-
+            var client = new MongoClient(config.GetConnectionString("StarWarsConnectionString"));
+            _db = client.GetDatabase("StarWarsDB");
         }
 
-        public IMongoCollection<Planet> Planets => throw new NotImplementedException();
+        public IMongoCollection<Planet> Planets => _db.GetCollection<Planet>("Planets");
     }
 }
