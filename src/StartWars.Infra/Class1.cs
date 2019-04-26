@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StartWars.Infra
+namespace StartWarsAPI.Infra
 {
     public class Class1
     {
