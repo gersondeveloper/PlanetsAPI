@@ -11,7 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCuttin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{38F11B4D-2EC4-4730-8F12-E0FDD9EA8B1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsAPI.WebAPI", "src\StarWarsAPI.WebAPI\StarWarsAPI.WebAPI.csproj", "{2F7914A2-79CC-417B-94AF-9AB6282211B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.WebAPI", "src\StarWarsAPI.WebAPI\StarWarsAPI.WebAPI.csproj", "{2F7914A2-79CC-417B-94AF-9AB6282211B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.Domain", "src\StarWarsAPI.Domain\StarWarsAPI.Domain.csproj", "{7AB59F52-4A83-4A1D-985B-E734C8C8D4D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartWars.Infra", "src\StartWars.Infra\StartWars.Infra.csproj", "{3F254BC5-D53A-4627-A697-579C0DFE97D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +27,22 @@ Global
 		{2F7914A2-79CC-417B-94AF-9AB6282211B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F7914A2-79CC-417B-94AF-9AB6282211B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F7914A2-79CC-417B-94AF-9AB6282211B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AB59F52-4A83-4A1D-985B-E734C8C8D4D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AB59F52-4A83-4A1D-985B-E734C8C8D4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AB59F52-4A83-4A1D-985B-E734C8C8D4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AB59F52-4A83-4A1D-985B-E734C8C8D4D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F254BC5-D53A-4627-A697-579C0DFE97D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F254BC5-D53A-4627-A697-579C0DFE97D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F254BC5-D53A-4627-A697-579C0DFE97D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F254BC5-D53A-4627-A697-579C0DFE97D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2F7914A2-79CC-417B-94AF-9AB6282211B8} = {6F71F12C-E223-4FC3-A1BE-3A859AFC1F26}
+		{7AB59F52-4A83-4A1D-985B-E734C8C8D4D9} = {1AA30C5F-B7AD-4B25-9B4F-8CABA9D7BDC9}
+		{3F254BC5-D53A-4627-A697-579C0DFE97D2} = {38F11B4D-2EC4-4730-8F12-E0FDD9EA8B1C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09339D19-E553-46C9-A959-1A5075BB24A3}
