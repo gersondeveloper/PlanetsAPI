@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.WebAPI", "src\S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.Domain", "src\StarWarsAPI.Domain\StarWarsAPI.Domain.csproj", "{7AB59F52-4A83-4A1D-985B-E734C8C8D4D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartWars.Infra", "src\StartWars.Infra\StartWars.Infra.csproj", "{3F254BC5-D53A-4627-A697-579C0DFE97D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartWarsAPI.Infra", "src\StartWars.Infra\StartWarsAPI.Infra.csproj", "{3F254BC5-D53A-4627-A697-579C0DFE97D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
