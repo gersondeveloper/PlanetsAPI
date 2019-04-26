@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{6F71F12C-E223-4FC3-A1BE-3A859AFC1F26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{1AA30C5F-B7AD-4B25-9B4F-8CABA9D7BDC9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{599E3755-079D-4018-B6F7-F8778147594F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{38F11B4D-2EC4-4730-8F12-E0FDD9EA8B1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsAPI.WebAPI", "src\StarWarsAPI.WebAPI\StarWarsAPI.WebAPI.csproj", "{2F7914A2-79CC-417B-94AF-9AB6282211B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F7914A2-79CC-417B-94AF-9AB6282211B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F7914A2-79CC-417B-94AF-9AB6282211B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F7914A2-79CC-417B-94AF-9AB6282211B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F7914A2-79CC-417B-94AF-9AB6282211B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2F7914A2-79CC-417B-94AF-9AB6282211B8} = {6F71F12C-E223-4FC3-A1BE-3A859AFC1F26}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09339D19-E553-46C9-A959-1A5075BB24A3}
+	EndGlobalSection
+EndGlobal
