@@ -8,6 +8,7 @@ namespace StarWarsAPI.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class ValuesController : ControllerBase
     {
         // GET api/values
