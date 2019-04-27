@@ -9,7 +9,7 @@ namespace StarWarsAPI.Domain.Interfaces
     {
         Task<IEnumerable<Planet>> GetAllPlanets();
         Task<Planet> GetPlanetById(int id);
-        Task CreatePlanet(Planet planet);
+        Task<bool> CreatePlanet(Planet planet);
         Task<bool> RemovePlanet(int id);
     }
 }

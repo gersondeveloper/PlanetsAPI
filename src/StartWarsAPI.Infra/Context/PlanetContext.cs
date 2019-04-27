@@ -14,6 +14,7 @@ namespace StartWarsAPI.Infra.Context
         {
             var client = new MongoClient(config.GetConnectionString("StarWarsConnectionString"));
             _db = client.GetDatabase("StarWarsDB");
+            
         }
 
         public IMongoCollection<Planet> Planets => _db.GetCollection<Planet>("Planets");

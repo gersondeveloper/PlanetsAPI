@@ -30,10 +30,6 @@ namespace StarWarsAPI.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
-
-            
-
             services.AddResponseCompression();
 
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -50,7 +46,7 @@ namespace StarWarsAPI.WebAPI
             services.AddSingleton<IPlanetApplicationService, PlanetApplicationService>();
 
             //Register automapper
-            var config = new AutoMapper.MapperConfiguration(cfg => 
+            var config = new AutoMapper.MapperConfiguration(cfg =>
             {
                 cfg.AddProfile(new DomainToViewModelMapping());
 
@@ -60,8 +56,13 @@ namespace StarWarsAPI.WebAPI
             services.AddSingleton(mapper);
 
             //Register fluent validation, using only fluent validation and validating child properties
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddFluentValidation(fv => {
+            services.AddMvc(options =>
+            {
+                options.RespectBrowserAcceptHeader = true; 
+            })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddFluentValidation(fv =>
+                {
                     fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
                     fv.ImplicitlyValidateChildProperties = true;
                 });
@@ -86,7 +87,7 @@ namespace StarWarsAPI.WebAPI
             app.UseSwagger();
 
             //Enable middleware to serve swagger-ui(static files) and specifying the swagger endpoint
-            app.UseSwaggerUI(c => 
+            app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "StarWars API V1");
             });

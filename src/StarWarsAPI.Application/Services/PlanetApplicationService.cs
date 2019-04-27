@@ -24,10 +24,13 @@ namespace StarWarsAPI.Domain.Services
             _mapper = mapper;
         }
 
-        public async Task CreatePlanet(PlanetViewModel planetViewModel)
+        public async Task<bool> CreatePlanet(Planet planet)
         {
+            var planetViewModel = _mapper.Map<Planet, PlanetViewModel>(planet);
             var _appearanceInMovies = await GetAppearanceInMovies(planetViewModel);
-            var planet = _mapper.Map<PlanetViewModel, Planet>(planetViewModel);
+            var _planet = _mapper.Map<PlanetViewModel, Planet>(planetViewModel);
+            return await _service.CreatePlanet(_planet);
+            
         }
 
         public async Task<IEnumerable<PlanetViewModel>> GetAllPlanets()
@@ -50,9 +53,19 @@ namespace StarWarsAPI.Domain.Services
             throw new System.NotImplementedException();
         }
 
-        Task<PlanetViewModel> IPlanetApplicationService.GetPlanetById(int id)
+        async Task<PlanetViewModel> IPlanetApplicationService.GetPlanetById(int id)
         {
-            throw new NotImplementedException();
+            var result = await _service.GetPlanetById(id);
+            var resultMapped = _mapper.Map<PlanetViewModel>(result);
+            if (resultMapped != null)
+            {
+                return await GetAppearanceInMovies(resultMapped);
+            }
+            else
+            {
+                return null;
+            }
+            
         }
 
         private async Task<PlanetViewModel> GetAppearanceInMovies(PlanetViewModel planetViewModel)

@@ -19,6 +19,10 @@ namespace StarWarsAPI.Domain.Entities
         public PlanetValidator()
         {
             //TODO: Revisar a quantidade de caracteres para cada propriedade
+            RuleFor(x => x.Id)
+                .NotNull()
+                .GreaterThan(0)
+                .WithMessage("Id is required");
 
             RuleFor(x => x.Name)
                 .NotNull()

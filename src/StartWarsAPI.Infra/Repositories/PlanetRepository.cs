@@ -17,9 +17,19 @@ namespace StartWarsAPI.Infra.Repositories
             _context = context;
         }
 
-        public async Task CreatePlanet(Planet planet)
+        public async Task<bool> CreatePlanet(Planet planet)
         {
-            await _context.Planets.InsertOneAsync(planet);
+            FilterDefinition<Planet> filter = Builders<Planet>.Filter.Eq(x=>x.Id, planet.Id);
+            if (filter == null)
+            {
+                await _context.Planets.InsertOneAsync(planet);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         public async Task<IEnumerable<Planet>> GetAllPlanets()

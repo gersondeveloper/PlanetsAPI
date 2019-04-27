@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using StarWarsAPI.Application.ViewModels;
+using StarWarsAPI.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,7 @@ namespace StarWarsAPI.Application.Interfaces
     {
         Task<IEnumerable<PlanetViewModel>> GetAllPlanets();
         Task<PlanetViewModel> GetPlanetById(int id);
-        Task CreatePlanet(PlanetViewModel planet);
+        Task<bool> CreatePlanet(Planet planet);
         Task<bool> RemovePlanet(int id);
     }
 }

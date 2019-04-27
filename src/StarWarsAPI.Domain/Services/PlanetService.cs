@@ -17,9 +17,9 @@ namespace StarWarsAPI.Domain.Services
             _planetRepository = planetRepository;
         }
 
-        public async Task CreatePlanet(Planet planet)
+        public async Task<bool> CreatePlanet(Planet planet)
         {
-            await _planetRepository.CreatePlanet(planet);
+            return await _planetRepository.CreatePlanet(planet);
         }
 
         public async Task<IEnumerable<Planet>> GetAllPlanets()
