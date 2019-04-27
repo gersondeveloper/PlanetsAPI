@@ -7,17 +7,11 @@ namespace StarWarsAPI.Domain.Entities
     [BsonIgnoreExtraElements]
     public class Planet
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.Int32)]
         public int Id { get; set; }
-        [BsonElement("name")]
         public string Name { get; set; }
-        [BsonElement("climate")]
         public string Climate { get; set; }
-        [BsonElement("terrain")]
         public string Terrain { get; set; }
         public int AppearanceInMovies { get; set; }
-
     }
 
     public class PlanetValidator : AbstractValidator<Planet>

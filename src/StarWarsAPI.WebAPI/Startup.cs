@@ -14,6 +14,7 @@ using StartWarsAPI.Infra.Context;
 using StarWarsAPI.Domain.Entities;
 using StarWarsAPI.Domain.Services;
 using StarWarsAPI.Application.Interfaces;
+using StarWarsAPI.Application.AutoMapper;
 
 namespace StarWarsAPI.WebAPI
 {
@@ -29,15 +30,9 @@ namespace StarWarsAPI.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Register automapper
-            services.AddAutoMapper();
+            
 
-            //Register fluent validation, using only fluent validation and validating child properties
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddFluentValidation(fv => {
-                    fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
-                    fv.ImplicitlyValidateChildProperties = true;
-                });
+            
 
             services.AddResponseCompression();
 
@@ -54,7 +49,22 @@ namespace StarWarsAPI.WebAPI
             services.AddTransient<IPlanetService, PlanetService>();
             services.AddTransient<IPlanetApplicationService, PlanetApplicationService>();
 
-            
+            //Register automapper
+            var config = new AutoMapper.MapperConfiguration(cfg => 
+            {
+                cfg.AddProfile(new DomainToViewModelMapping());
+
+            });
+
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+
+            //Register fluent validation, using only fluent validation and validating child properties
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddFluentValidation(fv => {
+                    fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
+                    fv.ImplicitlyValidateChildProperties = true;
+                });
 
         }
 
@@ -70,6 +80,7 @@ namespace StarWarsAPI.WebAPI
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseStaticFiles();
             //Enable middleware to serve generated Swagger as a Json endpoint
             app.UseSwagger();

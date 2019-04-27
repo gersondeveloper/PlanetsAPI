@@ -8,7 +8,7 @@ namespace StarWarsAPI.Application.AutoMapper
     {
         public DomainToViewModelMapping()
         {
-            CreateMap<Planet, PlanetViewModel>();
+            CreateMap<Planet, PlanetViewModel>().ReverseMap();
         }
     }
 }
