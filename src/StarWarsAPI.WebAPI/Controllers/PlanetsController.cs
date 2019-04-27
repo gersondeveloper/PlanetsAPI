@@ -18,11 +18,10 @@ namespace StarWarsAPI.WebAPI.Controllers
             _planetService = planetService;
         }
 
-
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return new ObjectResult(_planetService.GetAllPlanets());
+            return new ObjectResult(await _planetService.GetAllPlanets());
         }
     }
 }

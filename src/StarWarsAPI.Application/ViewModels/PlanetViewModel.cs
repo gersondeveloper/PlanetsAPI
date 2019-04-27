@@ -5,7 +5,7 @@ namespace StarWarsAPI.Application.ViewModels
 {
     public class PlanetViewModel
     {
-        public ObjectId Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 

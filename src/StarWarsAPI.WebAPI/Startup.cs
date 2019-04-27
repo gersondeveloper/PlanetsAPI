@@ -12,6 +12,8 @@ using StartWarsAPI.Infra.Repositories;
 using StartWarsAPI.Infra.Interfaces;
 using StartWarsAPI.Infra.Context;
 using StarWarsAPI.Domain.Entities;
+using StarWarsAPI.Domain.Services;
+using StarWarsAPI.Application.Interfaces;
 
 namespace StarWarsAPI.WebAPI
 {
@@ -49,7 +51,10 @@ namespace StarWarsAPI.WebAPI
             services.AddTransient<IPlanetRepository, PlanetRepository>();
             services.AddTransient<IPlanetContext, PlanetContext>();
             services.AddTransient<IValidator<Planet>, PlanetValidator>();
+            services.AddTransient<IPlanetService, PlanetService>();
+            services.AddTransient<IPlanetApplicationService, PlanetApplicationService>();
 
+            
 
         }
 
