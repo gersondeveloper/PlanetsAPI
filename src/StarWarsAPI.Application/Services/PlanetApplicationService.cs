@@ -48,9 +48,9 @@ namespace StarWarsAPI.Domain.Services
             return planetsWithAppearance;
         }
 
-        public Task<bool> RemovePlanet(int id)
+        public async Task<bool> RemovePlanet(int id)
         {
-            throw new System.NotImplementedException();
+            return await _service.RemovePlanet(id);
         }
 
         async Task<PlanetViewModel> IPlanetApplicationService.GetPlanetById(int id)

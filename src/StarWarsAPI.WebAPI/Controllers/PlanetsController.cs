@@ -75,7 +75,7 @@ namespace StarWarsAPI.WebAPI.Controllers
                 var result = await _planetService.CreatePlanet(planet);
                 if (result)
                 {
-                    return new OkObjectResult("Planet sucessfull created!");
+                    return new OkObjectResult("Planet successfull created!");
                 }
                 else
                 {
@@ -84,5 +84,21 @@ namespace StarWarsAPI.WebAPI.Controllers
             }
         }
 
+        [HttpDelete]
+        [Route("api/[controller]/{id}")]
+        [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _planetService.RemovePlanet(id);
+            if (result)
+            {
+                return new OkObjectResult("Planet was successfull deleted!");
+            }
+            else
+            {
+                return new BadRequestObjectResult("Error on deleting planet!");
+            }
+        }
     }
 }

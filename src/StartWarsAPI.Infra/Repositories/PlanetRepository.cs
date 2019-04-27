@@ -19,8 +19,8 @@ namespace StartWarsAPI.Infra.Repositories
 
         public async Task<bool> CreatePlanet(Planet planet)
         {
-            FilterDefinition<Planet> filter = Builders<Planet>.Filter.Eq(x=>x.Id, planet.Id);
-            if (filter == null)
+            var result = await _context.Planets.Find(p => p.Id == planet.Id).FirstOrDefaultAsync();
+            if (result == null)
             {
                 await _context.Planets.InsertOneAsync(planet);
                 return true;
