@@ -16,21 +16,33 @@ namespace StarWarsAPI.Domain.Services
     public class PlanetApplicationService : IPlanetApplicationService
     {
         private readonly IPlanetService _service;
+        private readonly IMapper _mapper;
 
-        public PlanetApplicationService(IPlanetService service) : base()
+        public PlanetApplicationService(IPlanetService service, IMapper mapper) : base()
         {
             _service = service;
+            _mapper = mapper;
         }
 
         public async Task CreatePlanet(PlanetViewModel planetViewModel)
         {
             var _appearanceInMovies = await GetAppearanceInMovies(planetViewModel);
-            var planet = Mapper.Map<PlanetViewModel, Planet>(planetViewModel);
+            var planet = _mapper.Map<PlanetViewModel, Planet>(planetViewModel);
         }
 
         public async Task<IEnumerable<PlanetViewModel>> GetAllPlanets()
         {
-            return await Mapper.Map<Task<IEnumerable<Planet>>, Task<IEnumerable<PlanetViewModel>>>(_service.GetAllPlanets());
+            var planetsWithAppearance = new List<PlanetViewModel>();
+            var result = await _service.GetAllPlanets();
+            var resultMapped = _mapper.Map<List<PlanetViewModel>>(result);
+
+            foreach (var item in resultMapped)
+            {
+                var newPlanetWithAppearance = await GetAppearanceInMovies(item);
+                planetsWithAppearance.Add(newPlanetWithAppearance);
+            }
+
+            return planetsWithAppearance;
         }
 
         public Task<bool> RemovePlanet(int id)

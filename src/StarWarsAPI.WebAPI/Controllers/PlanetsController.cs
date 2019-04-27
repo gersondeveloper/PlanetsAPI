@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using StarWarsAPI.Application.Interfaces;
 using StarWarsAPI.Application.ViewModels;
 using StarWarsAPI.Domain.Interfaces;
 
@@ -12,10 +13,10 @@ namespace StarWarsAPI.WebAPI.Controllers
     [Route("api/[controller]")]
     public class PlanetsController : Controller
     {
-        private readonly IPlanetService _planetService;
+        private readonly IPlanetApplicationService _planetService;
         private readonly IMapper _mapper;
 
-        public PlanetsController(IPlanetService planetService, IMapper mapper)
+        public PlanetsController(IPlanetApplicationService planetService, IMapper mapper)
         {
             _planetService = planetService;
             _mapper = mapper;

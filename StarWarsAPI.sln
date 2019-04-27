@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{63
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{7693D75D-C00C-4E7D-A300-FFF198DDC6EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsAPI.Application", "src\StarWarsAPI.Application\StarWarsAPI.Application.csproj", "{B41C0130-0FF3-468F-BB94-01D9A1DBBC92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.Application", "src\StarWarsAPI.Application\StarWarsAPI.Application.csproj", "{B41C0130-0FF3-468F-BB94-01D9A1DBBC92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

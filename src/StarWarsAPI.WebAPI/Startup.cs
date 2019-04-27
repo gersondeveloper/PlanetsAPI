@@ -43,11 +43,11 @@ namespace StarWarsAPI.WebAPI
             });
 
             //Registering dependency injection
-            services.AddTransient<IPlanetRepository, PlanetRepository>();
-            services.AddTransient<IPlanetContext, PlanetContext>();
+            services.AddSingleton<IPlanetRepository, PlanetRepository>();
+            services.AddSingleton<IPlanetContext, PlanetContext>();
             services.AddTransient<IValidator<Planet>, PlanetValidator>();
-            services.AddTransient<IPlanetService, PlanetService>();
-            services.AddTransient<IPlanetApplicationService, PlanetApplicationService>();
+            services.AddSingleton<IPlanetService, PlanetService>();
+            services.AddSingleton<IPlanetApplicationService, PlanetApplicationService>();
 
             //Register automapper
             var config = new AutoMapper.MapperConfiguration(cfg => 
