@@ -6,19 +6,22 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\Repositories\Core\PlanetsAPI\src\StarWarsAPI.WebAPI\StarWarsAPI.WebAPI.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="FluentValidation" Version="8.3.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StartWars.Infra\StartWarsAPI.Infra.csproj" />
+    <ProjectReference Include="..\StartWarsAPI.Infra\StartWarsAPI.Infra.csproj" />
     <ProjectReference Include="..\StarWarsAPI.Domain\StarWarsAPI.Domain.csproj" />
   </ItemGroup>
 

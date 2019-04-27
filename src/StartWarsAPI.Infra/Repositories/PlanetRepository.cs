@@ -27,21 +27,15 @@ namespace StartWarsAPI.Infra.Repositories
             return await _context.Planets.Find(planet => true).ToListAsync();
         }
 
-        public async Task<Planet> GetPlanet(string name)
-        {
-            FilterDefinition<Planet> filter = Builders<Planet>.Filter.Eq(p => p.Name, name);
-            return await _context.Planets.Find(filter).FirstOrDefaultAsync();
-        }
-
-        public async Task<Planet> GetPlanetById(ObjectId id)
+        public async Task<Planet> GetPlanetById(int id)
         {
             FilterDefinition<Planet> filter = Builders<Planet>.Filter.Eq(p => p.Id, id);
             return await _context.Planets.Find(filter).FirstOrDefaultAsync();
         }
 
-        public async Task<bool> RemovePlanet(string name)
+        public async Task<bool> RemovePlanet(int id)
         {
-            FilterDefinition<Planet> filter = Builders<Planet>.Filter.Eq(p => p.Name, name);
+            FilterDefinition<Planet> filter = Builders<Planet>.Filter.Eq(p => p.Id, id);
             DeleteResult deleteResult = await _context.Planets.DeleteOneAsync(filter);
             return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
         }
