@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\StarWarsAPI.Application\StarWarsAPI.Application.csproj" />
     <ProjectReference Include="..\StarWarsAPI.Domain\StarWarsAPI.Domain.csproj" />
   </ItemGroup>
 

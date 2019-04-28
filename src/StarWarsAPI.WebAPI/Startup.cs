@@ -5,16 +5,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 using FluentValidation;
-using AutoMapper;
 using FluentValidation.AspNetCore;
 using StarWarsAPI.Domain.Interfaces;
-using StartWarsAPI.Infra.Repositories;
-using StartWarsAPI.Infra.Interfaces;
-using StartWarsAPI.Infra.Context;
+using StarWarsAPI.Infra.Repositories;
+using StarWarsAPI.Infra.Interfaces;
+using StarWarsAPI.Infra.Context;
 using StarWarsAPI.Domain.Entities;
 using StarWarsAPI.Domain.Services;
-using StarWarsAPI.Application.Interfaces;
 using StarWarsAPI.Application.AutoMapper;
+using StarWarsAPI.Application.Interfaces;
 
 namespace StarWarsAPI.WebAPI
 {
@@ -39,11 +38,11 @@ namespace StarWarsAPI.WebAPI
             });
 
             //Registering dependency injection
-            services.AddSingleton<Domain.Interfaces.IPlanetApplicationService, PlanetRepository>();
+            services.AddSingleton<IPlanetRepository, PlanetRepository>();
             services.AddSingleton<IPlanetContext, PlanetContext>();
             services.AddTransient<IValidator<Planet>, PlanetValidator>();
             services.AddSingleton<IPlanetService, PlanetService>();
-            services.AddSingleton<Application.Interfaces.IPlanetApplicationService, PlanetApplicationService>();
+            services.AddSingleton<IPlanetApplicationService, PlanetApplicationService>();
 
             //Register automapper
             var config = new AutoMapper.MapperConfiguration(cfg =>

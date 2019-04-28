@@ -1,13 +1,14 @@
 ﻿using StarWarsAPI.Application.ViewModels;
 using StarWarsAPI.Domain.Entities;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace StarWarsAPI.Tests
 {
-    public static class StarWarsMockService
+    public static class StarWarsMockCore
     {
 
-        public static IEnumerable<PlanetViewModel> GetAllPlanets()
+        public static Task<IEnumerable<PlanetViewModel>> GetAllPlanets()
         {
             IEnumerable<PlanetViewModel> planets = new List<PlanetViewModel>()
             {
@@ -17,7 +18,7 @@ namespace StarWarsAPI.Tests
                 new PlanetViewModel(){ Id = 4, Name = "Teste4", Climate = "Climate4", Terrain = "Terrain4", AppearanceInMovies = 4 }
             };
 
-            return planets;
+            return Task.FromResult(planets);
         }
 
         public static PlanetViewModel GetPlanetOK()

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace StarWarsAPI.Domain.Interfaces
 {
-    public interface IPlanetApplicationService
+    public interface IPlanetRepository
     {
         Task<IEnumerable<Planet>> GetAllPlanets();
         Task<Planet> GetPlanetById(int id);

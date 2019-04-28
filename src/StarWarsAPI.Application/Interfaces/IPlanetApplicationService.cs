@@ -1,9 +1,6 @@
-﻿using MongoDB.Bson;
-using StarWarsAPI.Application.ViewModels;
+﻿using StarWarsAPI.Application.ViewModels;
 using StarWarsAPI.Domain.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace StarWarsAPI.Application.Interfaces

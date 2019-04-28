@@ -1,18 +1,16 @@
 ﻿using MongoDB.Driver;
 using StarWarsAPI.Domain.Entities;
 using StarWarsAPI.Domain.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace StarWarsAPI.Domain.Services
 {
     public class PlanetService : IPlanetService
     {
-        private readonly IPlanetApplicationService _planetRepository;
+        private readonly IPlanetRepository _planetRepository;
 
-        public PlanetService(IPlanetApplicationService planetRepository)
+        public PlanetService(IPlanetRepository planetRepository)
         {
             _planetRepository = planetRepository;
         }

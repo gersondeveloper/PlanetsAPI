@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
-using StartWarsAPI.Infra.Interfaces;
+using StarWarsAPI.Infra.Interfaces;
 using StarWarsAPI.Domain.Entities;
 using System;
 
-namespace StartWarsAPI.Infra.Context
+namespace StarWarsAPI.Infra.Context
 {
     public class PlanetContext : IPlanetContext
     {

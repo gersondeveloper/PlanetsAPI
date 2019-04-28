@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\StartWarsAPI.Infra\StartWarsAPI.Infra.csproj" />
+    <ProjectReference Include="..\StarWarsAPI.Infra\StarWarsAPI.Infra.csproj" />
     <ProjectReference Include="..\StarWarsAPI.Application\StarWarsAPI.Application.csproj" />
     <ProjectReference Include="..\StarWarsAPI.Domain\StarWarsAPI.Domain.csproj" />
   </ItemGroup>

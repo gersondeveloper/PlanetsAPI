@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.WebAPI", "src\S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.Domain", "src\StarWarsAPI.Domain\StarWarsAPI.Domain.csproj", "{7AB59F52-4A83-4A1D-985B-E734C8C8D4D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StartWarsAPI.Infra", "src\StartWarsAPI.Infra\StartWarsAPI.Infra.csproj", "{3F254BC5-D53A-4627-A697-579C0DFE97D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.Infra", "src\StarWarsAPI.Infra\StarWarsAPI.Infra.csproj", "{3F254BC5-D53A-4627-A697-579C0DFE97D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{63588615-5663-4ADA-B3AB-5814BEE2743D}"
 EndProject

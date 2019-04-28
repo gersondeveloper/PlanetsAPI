@@ -1,14 +1,14 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using StartWarsAPI.Infra.Interfaces;
+﻿using MongoDB.Driver;
+using StarWarsAPI.Infra.Interfaces;
 using StarWarsAPI.Domain.Entities;
-using StarWarsAPI.Domain.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using StarWarsAPI.Application.Interfaces;
+using StarWarsAPI.Domain.Interfaces;
 
-namespace StartWarsAPI.Infra.Repositories
+namespace StarWarsAPI.Infra.Repositories
 {
-    public class PlanetRepository : IPlanetApplicationService
+    public class PlanetRepository : IPlanetRepository
     {
         private readonly IPlanetContext _context;
 
@@ -49,5 +49,6 @@ namespace StartWarsAPI.Infra.Repositories
             DeleteResult deleteResult = await _context.Planets.DeleteOneAsync(filter);
             return deleteResult.IsAcknowledged && deleteResult.DeletedCount > 0;
         }
+
     }
 }
