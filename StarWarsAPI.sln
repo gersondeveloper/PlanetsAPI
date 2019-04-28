@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.Application", "src\StarWarsAPI.Application\StarWarsAPI.Application.csproj", "{B41C0130-0FF3-468F-BB94-01D9A1DBBC92}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{36D0ACF7-65BD-4708-8D19-942622A35772}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsAPI.Tests", "src\StarWarsAPI.Tests\StarWarsAPI.Tests.csproj", "{F22BE46C-E81A-46A8-B95F-BE3952C4E08F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,10 @@ Global
 		{B41C0130-0FF3-468F-BB94-01D9A1DBBC92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B41C0130-0FF3-468F-BB94-01D9A1DBBC92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B41C0130-0FF3-468F-BB94-01D9A1DBBC92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F22BE46C-E81A-46A8-B95F-BE3952C4E08F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F22BE46C-E81A-46A8-B95F-BE3952C4E08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F22BE46C-E81A-46A8-B95F-BE3952C4E08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F22BE46C-E81A-46A8-B95F-BE3952C4E08F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +58,7 @@ Global
 		{7AB59F52-4A83-4A1D-985B-E734C8C8D4D9} = {1AA30C5F-B7AD-4B25-9B4F-8CABA9D7BDC9}
 		{3F254BC5-D53A-4627-A697-579C0DFE97D2} = {38F11B4D-2EC4-4730-8F12-E0FDD9EA8B1C}
 		{B41C0130-0FF3-468F-BB94-01D9A1DBBC92} = {7693D75D-C00C-4E7D-A300-FFF198DDC6EF}
+		{F22BE46C-E81A-46A8-B95F-BE3952C4E08F} = {36D0ACF7-65BD-4708-8D19-942622A35772}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {09339D19-E553-46C9-A959-1A5075BB24A3}

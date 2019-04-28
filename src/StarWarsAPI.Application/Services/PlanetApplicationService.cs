@@ -13,7 +13,7 @@ using StarWarsAPI.Domain.Interfaces;
 
 namespace StarWarsAPI.Domain.Services
 {
-    public class PlanetApplicationService : IPlanetApplicationService
+    public class PlanetApplicationService : Application.Interfaces.IPlanetApplicationService
     {
         private readonly IPlanetService _service;
         private readonly IMapper _mapper;
@@ -53,7 +53,7 @@ namespace StarWarsAPI.Domain.Services
             return await _service.RemovePlanet(id);
         }
 
-        async Task<PlanetViewModel> IPlanetApplicationService.GetPlanetById(int id)
+        async Task<PlanetViewModel> Application.Interfaces.IPlanetApplicationService.GetPlanetById(int id)
         {
             var result = await _service.GetPlanetById(id);
             var resultMapped = _mapper.Map<PlanetViewModel>(result);

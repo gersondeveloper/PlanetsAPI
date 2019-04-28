@@ -10,9 +10,9 @@ namespace StarWarsAPI.Domain.Services
 {
     public class PlanetService : IPlanetService
     {
-        private readonly IPlanetRepository _planetRepository;
+        private readonly IPlanetApplicationService _planetRepository;
 
-        public PlanetService(IPlanetRepository planetRepository)
+        public PlanetService(IPlanetApplicationService planetRepository)
         {
             _planetRepository = planetRepository;
         }

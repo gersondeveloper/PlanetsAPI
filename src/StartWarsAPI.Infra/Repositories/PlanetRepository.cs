@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StartWarsAPI.Infra.Repositories
 {
-    public class PlanetRepository : IPlanetRepository
+    public class PlanetRepository : IPlanetApplicationService
     {
         private readonly IPlanetContext _context;
 
