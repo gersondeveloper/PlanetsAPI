@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using StarWarsAPI.Domain.Interfaces;
@@ -14,6 +13,10 @@ using StarWarsAPI.Domain.Entities;
 using StarWarsAPI.Domain.Services;
 using StarWarsAPI.Application.AutoMapper;
 using StarWarsAPI.Application.Interfaces;
+using System.Reflection;
+using System.IO;
+using System;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace StarWarsAPI.WebAPI
 {
@@ -31,11 +34,7 @@ namespace StarWarsAPI.WebAPI
         {
             services.AddResponseCompression();
 
-            // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "StaWars API", Version = "v1" });
-            });
+            
 
             //Registering dependency injection
             services.AddSingleton<IPlanetRepository, PlanetRepository>();
@@ -57,14 +56,26 @@ namespace StarWarsAPI.WebAPI
             //Register fluent validation, using only fluent validation and validating child properties
             services.AddMvc(options =>
             {
-                options.RespectBrowserAcceptHeader = true; 
+                options.RespectBrowserAcceptHeader = true;
             })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddFluentValidation(fv =>
                 {
                     fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
                     fv.ImplicitlyValidateChildProperties = true;
                 });
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "StaWars API", Version = "v1" });
+
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+
+            });
 
         }
 
@@ -82,6 +93,9 @@ namespace StarWarsAPI.WebAPI
             }
 
             app.UseStaticFiles();
+           
+            app.UseHttpsRedirection();
+
             //Enable middleware to serve generated Swagger as a Json endpoint
             app.UseSwagger();
 
@@ -89,10 +103,11 @@ namespace StarWarsAPI.WebAPI
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "StarWars API V1");
+                c.RoutePrefix = string.Empty;
             });
 
-            app.UseHttpsRedirection();
             app.UseMvc();
+
         }
     }
 }

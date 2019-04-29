@@ -8,7 +8,7 @@ namespace StarWarsAPI.Tests
     public static class StarWarsMockCore
     {
 
-        public static Task<IEnumerable<PlanetViewModel>> GetAllPlanets()
+        public static IEnumerable<PlanetViewModel> GetAllPlanets()
         {
             IEnumerable<PlanetViewModel> planets = new List<PlanetViewModel>()
             {
@@ -18,7 +18,7 @@ namespace StarWarsAPI.Tests
                 new PlanetViewModel(){ Id = 4, Name = "Teste4", Climate = "Climate4", Terrain = "Terrain4", AppearanceInMovies = 4 }
             };
 
-            return Task.FromResult(planets);
+            return planets;
         }
 
         public static PlanetViewModel GetPlanetOK()

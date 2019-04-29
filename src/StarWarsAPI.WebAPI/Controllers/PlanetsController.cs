@@ -10,6 +10,7 @@ using StarWarsAPI.Domain.Entities;
 namespace StarWarsAPI.WebAPI.Controllers
 {
     [Produces("application/json")]
+    [ApiController]
     public class PlanetsController : Controller
     {
         private readonly IPlanetApplicationService _planetService;
@@ -21,7 +22,9 @@ namespace StarWarsAPI.WebAPI.Controllers
             _mapper = mapper;
         }
 
-
+        /// <summary>
+        /// Gets all planets.
+        /// </summary>
         [HttpGet]
         [Route("api/[controller]")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status200OK)]
@@ -32,6 +35,10 @@ namespace StarWarsAPI.WebAPI.Controllers
             return new ObjectResult(resultMapped);
         }
 
+        /// <summary>
+        /// Gets a specific Planet.
+        /// </summary>
+        /// <param name="id"></param> 
         [HttpGet]
         [Route("api/[controller]/{id}")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status200OK)]
@@ -50,6 +57,10 @@ namespace StarWarsAPI.WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Creates a planet
+        /// </summary>
+        /// <param name="planet"></param> 
         [HttpPost]
         [Route("api/[controller]")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status201Created)]
@@ -84,6 +95,10 @@ namespace StarWarsAPI.WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Deletes a specific Planet.
+        /// </summary>
+        /// <param name="id"></param> 
         [HttpDelete]
         [Route("api/[controller]/{id}")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status200OK)]

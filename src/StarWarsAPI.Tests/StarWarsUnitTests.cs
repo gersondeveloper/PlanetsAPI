@@ -7,7 +7,10 @@ using StarWarsAPI.Application.ViewModels;
 using Moq;
 using StarWarsAPI.Application.Interfaces;
 using System.Threading.Tasks;
-using StarWarsAPI.Domain.Interfaces;
+using StarWarsAPI.WebAPI.Controllers;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace StarWarsAPI.Tests
 {
@@ -20,20 +23,19 @@ namespace StarWarsAPI.Tests
 
         public StarWarsUnitTests()
         {
+            //Initialize Mock
+            _mock = new Mock<IPlanetApplicationService>();
+
             //Initialize PlanetValidator
             _planetValidator = new PlanetValidator();
 
             //Initialize AutoMapper
-            var config = new MapperConfiguration(cfg => {
+            var config = new MapperConfiguration(cfg =>
+            {
                 cfg.AddProfile<DomainToViewModelMapping>();
             });
 
-            _mapper  = new Mapper(config);
-
-            //Initialize Mock
-            _mock = new Mock<IPlanetApplicationService>();
-            
-           
+            _mapper = new Mapper(config);
         }
 
         #region Model Validator
@@ -129,25 +131,82 @@ namespace StarWarsAPI.Tests
         #region Repository Tests
 
         [Fact]
-        public void ShoudReturnAllPlanets()
+        public async Task ShoudReturn4Planets()
         {
-            
-           
+            //Arrange
+            var mockRepo = new Mock<IPlanetApplicationService>();
+            mockRepo.Setup(repo => repo.GetAllPlanets()).ReturnsAsync(StarWarsMockCore.GetAllPlanets());
+            var controller = new PlanetsController(mockRepo.Object, _mapper);
+
+            //Act
+            var result = await controller.Get();
+
+            //Assert
+            var objectResult = Assert.IsType<ObjectResult>(result);
+            var model = Assert.IsAssignableFrom<List<PlanetViewModel>>(objectResult.Value);
+            Assert.Equal(4, model.Count());
         }
 
-        [Fact]
-        public void ShoudReturnPlanetById()
+        [Theory]
+        [InlineData(10)]
+        public async Task ShoudReturnPlanetById(int id)
         {
+            //Arrange
+            var mockRepo = new Mock<IPlanetApplicationService>();
+            mockRepo.Setup(repo => repo.GetPlanetById(id)).ReturnsAsync(StarWarsMockCore.GetPlanetOK);
+            var controller = new PlanetsController(mockRepo.Object, _mapper);
 
+            //Act
+            var result = await controller.Get(id);
 
-
+            //Assert
+            var objectResult = Assert.IsType<OkObjectResult>(result);
+            var model = Assert.IsAssignableFrom<PlanetViewModel>(objectResult.Value);
+            Assert.Equal(10, model.Id);
         }
 
-        [Fact]
-        public void ShouldReturnBoolWhenRemovePlanet()
+        [Theory]
+        [InlineData(10)]
+        public async Task ShouldReturnSuccessfullMessageWhenRemovePlanet(int id)
         {
+            //Arrange
+            var mockRepo = new Mock<IPlanetApplicationService>();
+            mockRepo.Setup(repo => repo.RemovePlanet(id)).ReturnsAsync(true);
+            var controller = new PlanetsController(mockRepo.Object, _mapper);
 
+            //Act
+            var result = await controller.Delete(id);
+
+            //Assert
+            var objectResult = Assert.IsType<OkObjectResult>(result);
+            var strResponse = Assert.IsAssignableFrom<string>(objectResult.Value);
+            Assert.Equal("Planet was successfull deleted!", strResponse);
         }
+
+        [Theory]
+        [MemberData(nameof(Data))]
+        public async Task ShouldReturnSuccessfullMessageWhenCreatePlanet(int id, string name, string climate, string terrain, int appearances)
+        {
+            //Arrange
+            var planet = new Planet() { Id = id, Name = name, Climate = climate, Terrain = terrain, AppearanceInMovies = appearances };
+            var mockRepo = new Mock<IPlanetApplicationService>();
+            mockRepo.Setup(repo => repo.CreatePlanet(planet)).ReturnsAsync(true);
+            var controller = new PlanetsController(mockRepo.Object, _mapper);
+
+            //Act
+            var result = await controller.Post(planet);
+
+            //Assert
+            var objectResult = Assert.IsType<OkObjectResult>(result);
+            var strResponse = Assert.IsAssignableFrom<string>(objectResult.Value);
+            Assert.Equal("Planet successfull created!", strResponse);
+        }
+
+        public static IEnumerable<object[]> Data =>
+        new List<object[]>
+        {
+            new object[] { 1, "Planet Name 1", "Planet Climate 1", "Planet Terrain 1", 10 },
+        };
 
         #endregion
     }
