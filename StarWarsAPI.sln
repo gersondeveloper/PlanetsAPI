@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.Application", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{36D0ACF7-65BD-4708-8D19-942622A35772}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsAPI.Tests", "src\StarWarsAPI.Tests\StarWarsAPI.Tests.csproj", "{F22BE46C-E81A-46A8-B95F-BE3952C4E08F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.Tests", "src\StarWarsAPI.Tests\StarWarsAPI.Tests.csproj", "{F22BE46C-E81A-46A8-B95F-BE3952C4E08F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

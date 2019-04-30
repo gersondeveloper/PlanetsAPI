@@ -58,7 +58,7 @@ namespace StarWarsAPI.WebAPI
             {
                 options.RespectBrowserAcceptHeader = true;
             })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddFluentValidation(fv =>
                 {
                     fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false;
@@ -68,13 +68,24 @@ namespace StarWarsAPI.WebAPI
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "StaWars API", Version = "v1" });
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "StarWars API",
+                    Description = "A sample API using ,Net Core and MongoDB",
+                    TermsOfService = "None",
+                    Contact = new Contact
+                    {
+                        Name = "Gerson Cardoso Filho",
+                        Email = string.Empty,
+                        Url = "https://github.com/gersondeveloper"
+                    }
+                });
 
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
-
             });
 
         }
@@ -82,20 +93,8 @@ namespace StarWarsAPI.WebAPI
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
-
             app.UseStaticFiles();
            
-            app.UseHttpsRedirection();
-
             //Enable middleware to serve generated Swagger as a Json endpoint
             app.UseSwagger();
 
@@ -103,7 +102,6 @@ namespace StarWarsAPI.WebAPI
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "StarWars API V1");
-                c.RoutePrefix = string.Empty;
             });
 
             app.UseMvc();

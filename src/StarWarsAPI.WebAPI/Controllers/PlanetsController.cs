@@ -10,6 +10,7 @@ using StarWarsAPI.Domain.Entities;
 namespace StarWarsAPI.WebAPI.Controllers
 {
     [Produces("application/json")]
+    [Route("api/[controller]")]
     [ApiController]
     public class PlanetsController : Controller
     {
@@ -26,7 +27,6 @@ namespace StarWarsAPI.WebAPI.Controllers
         /// Gets all planets.
         /// </summary>
         [HttpGet]
-        [Route("api/[controller]")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get()
         {
@@ -39,8 +39,7 @@ namespace StarWarsAPI.WebAPI.Controllers
         /// Gets a specific Planet.
         /// </summary>
         /// <param name="id"></param> 
-        [HttpGet]
-        [Route("api/[controller]/{id}")]
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get(int id)
@@ -62,7 +61,6 @@ namespace StarWarsAPI.WebAPI.Controllers
         /// </summary>
         /// <param name="planet"></param> 
         [HttpPost]
-        [Route("api/[controller]")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status400BadRequest)]
 
