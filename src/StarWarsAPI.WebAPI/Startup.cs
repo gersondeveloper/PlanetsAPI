@@ -77,7 +77,7 @@ namespace StarWarsAPI.WebAPI
                     Contact = new Contact
                     {
                         Name = "Gerson Cardoso Filho",
-                        Email = string.Empty,
+                        Email = "gersoncfilho@mac.com",
                         Url = "https://github.com/gersondeveloper"
                     }
                 });
