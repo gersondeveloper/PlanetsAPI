@@ -9,6 +9,7 @@ namespace StarWarsAPI.Application.Interfaces
     {
         Task<IEnumerable<PlanetViewModel>> GetAllPlanets();
         Task<PlanetViewModel> GetPlanetById(int id);
+        Task<PlanetViewModel> GetPlanetByName(string name);
         Task<bool> CreatePlanet(Planet planet);
         Task<bool> RemovePlanet(int id);
     }

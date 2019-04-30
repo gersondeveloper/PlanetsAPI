@@ -43,6 +43,12 @@ namespace StarWarsAPI.Infra.Repositories
             return await _context.Planets.Find(filter).FirstOrDefaultAsync();
         }
 
+        public async Task<Planet> GetPlanetByName(string name)
+        {
+            FilterDefinition<Planet> filter = Builders<Planet>.Filter.Eq(p => p.Name, name);
+            return await _context.Planets.Find(filter).FirstOrDefaultAsync();
+        }
+
         public async Task<bool> RemovePlanet(int id)
         {
             FilterDefinition<Planet> filter = Builders<Planet>.Filter.Eq(p => p.Id, id);
