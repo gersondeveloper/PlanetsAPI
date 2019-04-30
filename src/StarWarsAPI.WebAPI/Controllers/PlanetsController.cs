@@ -10,7 +10,6 @@ using StarWarsAPI.Domain.Entities;
 namespace StarWarsAPI.WebAPI.Controllers
 {
     [Produces("application/json")]
-    [Route("api/[controller]")]
     [ApiController]
     public class PlanetsController : Controller
     {
@@ -27,6 +26,7 @@ namespace StarWarsAPI.WebAPI.Controllers
         /// Gets all planets.
         /// </summary>
         [HttpGet]
+        [Route("Planet")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status200OK)]
         public async Task<IActionResult> Get()
         {
@@ -39,7 +39,8 @@ namespace StarWarsAPI.WebAPI.Controllers
         /// Gets a specific Planet.
         /// </summary>
         /// <param name="id"></param> 
-        [HttpGet("{id}")]
+        [HttpGet]
+        [Route("Planet/Id/{id}")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get(int id)
@@ -60,7 +61,8 @@ namespace StarWarsAPI.WebAPI.Controllers
         /// Gets a specific Planet.
         /// </summary>
         /// <param name="name"></param> 
-        [HttpGet("{name}")]
+        [HttpGet]
+        [Route("Planet/Name/{name}")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get(string name)
@@ -82,6 +84,7 @@ namespace StarWarsAPI.WebAPI.Controllers
         /// </summary>
         /// <param name="planet"></param> 
         [HttpPost]
+        [Route("Planet")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status400BadRequest)]
 
@@ -119,7 +122,7 @@ namespace StarWarsAPI.WebAPI.Controllers
         /// </summary>
         /// <param name="id"></param> 
         [HttpDelete]
-        [Route("api/[controller]/{id}")]
+        [Route("Planet/{id}")]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> Delete(int id)
