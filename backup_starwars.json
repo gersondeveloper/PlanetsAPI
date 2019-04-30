@@ -1,0 +1,2 @@
+{"_id":{"$numberInt":"1"},"Name":"Tatooine","Climate":"arid","Terrain":"desert","AppearanceInMovies":{"$numberInt":"5"}}
+{"_id":{"$numberInt":"2"},"Name":"Alderaan","Climate":"temperate","Terrain":"grasslands, mountains","AppearanceInMovies":{"$numberInt":"2"}}
