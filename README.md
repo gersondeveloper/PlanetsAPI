@@ -7,7 +7,7 @@ PlanetsAPI Instructions
 5 - Restore packages</br>
 6 - Build solution</br>
 7 - Run solution</br>
-8 - Access Swagger documentation from "https:localhost:&lt;port&gt;/swagger/"</br>
+8 - Access Swagger documentation from https://localhost:&lt;port&gt;/swagger/</br>
   
   
 
