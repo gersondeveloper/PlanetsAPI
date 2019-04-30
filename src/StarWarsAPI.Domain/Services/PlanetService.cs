@@ -30,6 +30,11 @@ namespace StarWarsAPI.Domain.Services
             return await _planetRepository.GetPlanetById(id);
         }
 
+        public async Task<Planet> GetPlanetByName(string name)
+        {
+            return await _planetRepository.GetPlanetByName(name);
+        }
+
         public async Task<bool> RemovePlanet(int id)
         {
             return await _planetRepository.RemovePlanet(id);

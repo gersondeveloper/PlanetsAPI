@@ -13,7 +13,7 @@ using StarWarsAPI.Domain.Interfaces;
 
 namespace StarWarsAPI.Domain.Services
 {
-    public class PlanetApplicationService : Application.Interfaces.IPlanetApplicationService
+    public class PlanetApplicationService : IPlanetApplicationService
     {
         private readonly IPlanetService _service;
         private readonly IMapper _mapper;
@@ -53,21 +53,6 @@ namespace StarWarsAPI.Domain.Services
             return await _service.RemovePlanet(id);
         }
 
-        async Task<PlanetViewModel> Application.Interfaces.IPlanetApplicationService.GetPlanetById(int id)
-        {
-            var result = await _service.GetPlanetById(id);
-            var resultMapped = _mapper.Map<PlanetViewModel>(result);
-            if (resultMapped != null)
-            {
-                return await GetAppearanceInMovies(resultMapped);
-            }
-            else
-            {
-                return null;
-            }
-            
-        }
-
         private async Task<PlanetViewModel> GetAppearanceInMovies(PlanetViewModel planetViewModel)
         {
 
@@ -104,5 +89,32 @@ namespace StarWarsAPI.Domain.Services
             return planetViewModel;
         }
 
+        public async Task<PlanetViewModel> GetPlanetByName(string name)
+        {
+            var result = await _service.GetPlanetByName(name);
+            var resultMapped = _mapper.Map<PlanetViewModel>(result);
+            if (resultMapped != null)
+            {
+                return await GetAppearanceInMovies(resultMapped);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task<PlanetViewModel> GetPlanetById(int id)
+        {
+            var result = await _service.GetPlanetById(id);
+            var resultMapped = _mapper.Map<PlanetViewModel>(result);
+            if (resultMapped != null)
+            {
+                return await GetAppearanceInMovies(resultMapped);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

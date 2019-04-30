@@ -166,6 +166,24 @@ namespace StarWarsAPI.Tests
         }
 
         [Theory]
+        [InlineData("Planet Test")]
+        public async Task ShoudReturnPlanetByName(string name)
+        {
+            //Arrange
+            var mockRepo = new Mock<IPlanetApplicationService>();
+            mockRepo.Setup(repo => repo.GetPlanetByName(name)).ReturnsAsync(StarWarsMockCore.GetPlanetOK);
+            var controller = new PlanetsController(mockRepo.Object, _mapper);
+
+            //Act
+            var result = await controller.Get(name);
+
+            //Assert
+            var objectResult = Assert.IsType<OkObjectResult>(result);
+            var model = Assert.IsAssignableFrom<PlanetViewModel>(objectResult.Value);
+            Assert.Equal("Planet Test", model.Name);
+        }
+
+        [Theory]
         [InlineData(10)]
         public async Task ShouldReturnSuccessfullMessageWhenRemovePlanet(int id)
         {

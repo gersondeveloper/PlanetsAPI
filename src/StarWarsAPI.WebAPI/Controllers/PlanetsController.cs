@@ -57,6 +57,27 @@ namespace StarWarsAPI.WebAPI.Controllers
         }
 
         /// <summary>
+        /// Gets a specific Planet.
+        /// </summary>
+        /// <param name="name"></param> 
+        [HttpGet("{name}")]
+        [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(PlanetViewModel), StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Get(string name)
+        {
+            var result = await _planetService.GetPlanetByName(name);
+            var resultMapped = _mapper.Map<PlanetViewModel>(result);
+            if (resultMapped != null)
+            {
+                return new OkObjectResult(resultMapped);
+            }
+            else
+            {
+                return new NotFoundObjectResult("Planet not found!");
+            }
+        }
+
+        /// <summary>
         /// Creates a planet
         /// </summary>
         /// <param name="planet"></param> 
