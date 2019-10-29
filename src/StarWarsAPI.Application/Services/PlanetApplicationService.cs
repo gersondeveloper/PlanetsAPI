@@ -9,16 +9,16 @@ using Newtonsoft.Json.Linq;
 using StarWarsAPI.Application.Interfaces;
 using StarWarsAPI.Application.ViewModels;
 using StarWarsAPI.Domain.Entities;
-using StarWarsAPI.Domain.Interfaces;
+using StarWarsAPI.Domain.Services;
 
-namespace StarWarsAPI.Domain.Services
+namespace StarWarsAPI.Application.Services
 {
     public class PlanetApplicationService : IPlanetApplicationService
     {
-        private readonly IPlanetService _service;
+        private readonly PlanetService _service;
         private readonly IMapper _mapper;
 
-        public PlanetApplicationService(IPlanetService service, IMapper mapper) : base()
+        public PlanetApplicationService(PlanetService service, IMapper mapper) : base()
         {
             _service = service;
             _mapper = mapper;

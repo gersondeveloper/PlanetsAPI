@@ -13,6 +13,7 @@ using StarWarsAPI.Domain.Entities;
 using StarWarsAPI.Domain.Services;
 using StarWarsAPI.Application.AutoMapper;
 using StarWarsAPI.Application.Interfaces;
+using StarWarsAPI.Application.Services;
 using System.Reflection;
 using System.IO;
 using System;
