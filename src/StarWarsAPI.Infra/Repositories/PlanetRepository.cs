@@ -3,7 +3,6 @@ using StarWarsAPI.Infra.Interfaces;
 using StarWarsAPI.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using StarWarsAPI.Application.Interfaces;
 using StarWarsAPI.Domain.Interfaces;
 
 namespace StarWarsAPI.Infra.Repositories
