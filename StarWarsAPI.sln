@@ -23,8 +23,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{36D0ACF7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarWarsAPI.Tests", "src\StarWarsAPI.Tests\StarWarsAPI.Tests.csproj", "{F22BE46C-E81A-46A8-B95F-BE3952C4E08F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWarsAPI.FrontEnd", "src\StarWarsAPI.FrontEnd\StarWarsAPI.FrontEnd.csproj", "{682D2397-16F5-45EE-ADB4-C43F6926223D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,10 +49,6 @@ Global
 		{F22BE46C-E81A-46A8-B95F-BE3952C4E08F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F22BE46C-E81A-46A8-B95F-BE3952C4E08F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F22BE46C-E81A-46A8-B95F-BE3952C4E08F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{682D2397-16F5-45EE-ADB4-C43F6926223D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{682D2397-16F5-45EE-ADB4-C43F6926223D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{682D2397-16F5-45EE-ADB4-C43F6926223D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{682D2397-16F5-45EE-ADB4-C43F6926223D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
