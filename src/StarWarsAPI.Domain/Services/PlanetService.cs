@@ -1,5 +1,4 @@
-﻿using MongoDB.Driver;
-using StarWarsAPI.Domain.Entities;
+﻿using StarWarsAPI.Domain.Entities;
 using StarWarsAPI.Domain.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
